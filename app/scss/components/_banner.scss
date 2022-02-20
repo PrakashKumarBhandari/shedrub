@@ -1,0 +1,65 @@
+.site-main-banner {
+    position: relative;
+    .main-banner-item {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center 0;
+        min-height: 20rem;
+        @include respond(md) {
+            min-height: 36rem;
+        }
+    }
+    hgroup {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        color: #fff;
+        margin-top: -2rem;
+        margin-left: -12.5rem;
+        width: 25rem;
+        text-align: center;
+        @include respond(md) {
+            background: url("#{$theme-imgpath}/shedrub-logo.png") no-repeat 0 0;
+            padding: 0 0 0 13.2rem;
+            width: 39rem;
+            height: 11.3rem;
+            left: 10vw;
+            margin-top: -5.65rem;
+            margin-left: 0;
+            text-align: left;
+        }
+        h1 {
+            font-size: 4rem;
+            margin: 0;
+        }
+        h2 {
+            font-family: $default-font;
+            font-weight: 400;
+            font-size: 2rem;
+            margin: 0;
+            line-height: 2rem;
+        }
+    }
+    .language-menu {
+        position: absolute;
+        bottom: 1rem;
+        right: 0;
+        z-index: 1;
+        .nav-item {
+            margin: 0.7rem;
+            .nav-link {
+                border: 0.1rem solid #fff;
+                color: #fff;
+                text-transform: capitalize;
+                font-family: $title-font;
+                font-weight: 700;
+                &.active,
+                &:hover {
+                    background: $primary-color;
+                    border-color: $primary-color;
+                }
+            }
+        }
+    }
+}

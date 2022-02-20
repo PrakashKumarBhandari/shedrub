@@ -1,0 +1,9 @@
+.gridder-show {
+    display: block;
+    float: left;
+    width: 100%;
+    position: relative;
+}
+.gridder-content {
+    display: none;
+}

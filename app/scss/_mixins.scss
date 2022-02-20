@@ -1,0 +1,80 @@
+// Respond  mixins
+@mixin respond($breakpoint) {
+    @if $breakpoint == sm {
+        @media (min-width: #{$sm}) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == md {
+        @media (min-width: #{$md}) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == lg {
+        @media (min-width: #{$lg}) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == xl {
+        @media (min-width: #{$xl}) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == xxl {
+        @media (min-width: #{$xxl}) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == tablet-potrait {
+        @media (max-width: #{$lg - 1}) and (min-width: #{$md}) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == tablet-lanscape {
+        @media (max-width: #{$xl - 1}) and (min-width: #{$lg}) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == screen-1200 {
+        @media (max-width: #{$xl}) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == screen-md-laptop {
+        @media (max-width: 1440px) and (min-width: #{1366px}) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == screen-1440 {
+        @media (max-width: #{$xxl}) and (min-width: #{$xxl}) {
+            @content;
+        }
+    }
+}
+
+// transition mixins
+@mixin transition {
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+}
+
+// transform mixins
+@mixin transform {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+}

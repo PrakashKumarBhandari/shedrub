@@ -1,0 +1,55 @@
+.content-area {
+    display: table;
+    width: 100%;
+    @include respond(md) {
+        padding-top: 5rem;
+    }
+    .primary-content {
+        @include respond(md) {
+            display: table-cell;
+        }
+        .text-container {
+            text-align: center;
+            padding: 3rem;
+            max-width: 70rem;
+            margin: 0 auto;
+        }
+    }
+    .secondary-content {
+        background: #fafafa;
+        padding-top: 4rem;
+        @include respond(md) {
+            display: table-cell;
+            width: 27rem;
+        }
+        .news-list {
+            padding: 0 2rem;
+            article {
+                padding: 0 0 2.4rem;
+                margin-bottom: 2rem;
+                border-bottom: 0.1rem solid #e6e6e6;
+                h2 {
+                    font-size: 2rem;
+                    font-weight: 400;
+                }
+                time {
+                    color: $default-text-color;
+                    margin: 0 0 0.5rem;
+                    display: block;
+                }
+                p {
+                    margin: 0;
+                    color: #969696;
+                }
+            }
+        }
+        .more-news {
+            display: block;
+            text-align: center;
+            color: $default-text-color;
+            font-family: $title-font;
+            position: relative;
+            top: -1rem;
+        }
+    }
+}

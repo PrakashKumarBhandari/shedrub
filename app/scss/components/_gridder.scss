@@ -1,0 +1,147 @@
+.category-large-nav {
+    .gridder {
+        .gridder-list {
+            text-align: center;
+            display: inline-block;
+            vertical-align: top;
+            padding: 0 0 3rem;
+            cursor: pointer;
+            position: relative;
+            @include respond(md) {
+                width: 49.5%;
+            }
+            @include respond(lg) {
+                width: 33%;
+            }
+            .inner-gridder-content {
+                padding: 0 1.5rem;
+                @include respond(md) {
+                    max-width: 25rem;
+                    min-height: 21.2rem;
+                    margin: 0 auto;
+                    padding: 0;
+                }
+                i {
+                    width: 11rem;
+                    width: 11rem;
+                    margin: 0 auto 1rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    svg {
+                        width: 100%;
+                    }
+                }
+                h3 {
+                    font-weight: 400;
+                    font-size: 2rem;
+                }
+                p {
+                    margin: 0;
+                }
+            }
+            &:hover,
+            &.selectedItem {
+                color: $dark-color;
+            }
+            &.selectedItem {
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    border-bottom: 1.2rem solid #e6e6e6;
+                    border-left: 1rem solid transparent;
+                    border-right: 1rem solid transparent;
+                    margin-left: -1rem;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -0.1rem;
+                    left: 50%;
+                    border-bottom: 1.1rem solid #fff;
+                    border-left: 0.9rem solid transparent;
+                    border-right: 0.9rem solid transparent;
+                    margin-left: -0.9rem;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+    .gridder-show {
+        padding: 0 1.5rem;
+        @include respond(md) {
+            padding: 0 5rem;
+        }
+    }
+    .gridder-expanded-content {
+        padding: 2.4rem 0;
+        border-top: 0.1rem solid #e6e6e6;
+        .description {
+            font-size: 1.6rem;
+            font-family: $title-font;
+        }
+        .sites {
+            list-style-type: none;
+            .site {
+                &:not(:last-child) {
+                    margin: 0 0 2rem;
+                }
+                h3 {
+                    font-size: 1.6rem;
+                    font-family: $title-font;
+                    font-weight: 400;
+                }
+                a {
+                    margin: 0 0 0.5rem;
+                    display: inline-block;
+                    background: url("#{$theme-imgpath}/network-outgoing-link.svg")
+                        no-repeat top 0.5rem left;
+                    padding-left: 1.8rem;
+                }
+                p {
+                    margin: 0;
+                    color: #474747;
+                }
+            }
+        }
+    }
+}
+
+.monks-and-nuns {
+    color: #aa003c;
+    a {
+        color: #aa003c;
+    }
+}
+.study {
+    color: #ba9700;
+    a {
+        color: #ba9700;
+    }
+}
+.online-meditation {
+    color: #885700;
+    a {
+        color: #885700;
+    }
+}
+.international-centers {
+    color: #002787;
+    a {
+        color: #002787;
+    }
+}
+.translation {
+    color: #ce5800;
+    a {
+        color: #ce5800;
+    }
+}
+.social-work {
+    color: #6c7f00;
+    a {
+        color: #6c7f00;
+    }
+}
