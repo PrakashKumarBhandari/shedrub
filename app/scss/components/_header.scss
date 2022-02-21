@@ -27,6 +27,12 @@
                     visibility: hidden;
                     svg {
                         width: 100%;
+                        path {
+                            fill: #bfbfbf;
+                        }
+                        g {
+                            fill: #bfbfbf;
+                        }
                     }
                 }
                 &.active,
