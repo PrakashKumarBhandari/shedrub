@@ -83,7 +83,11 @@ function wordlimit($text='',$num_words='10',$more=''){
 	return wp_trim_words($text,$num_words,$more);
 }
 
-
+function addUrlLink($url, $scheme = 'http://')
+{
+  return parse_url($url, PHP_URL_SCHEME) === null ?
+    $scheme . $url : $url;
+}
 
 
  /*
@@ -128,7 +132,7 @@ if( function_exists('acf_add_options_page') ) {
 
 
 function required_custom_post_types(){
-   
+   /*
    register_post_type('news', array(
        'labels' => array('name' => 'News'),
        'public' => true,
@@ -137,13 +141,14 @@ function required_custom_post_types(){
        'rewrite'=> array('slug'=> 'news'),
        'menu_icon' => 'dashicons-table-row-before'
    )); 
+   */
 
-	register_post_type('slider', array(
-		'labels' => array('name' => 'Slider'),
+	register_post_type('tab-feature', array(
+		'labels' => array('name' => 'Featured Tab'),
 		'public' => true,
 		'menu_position'=> 23,
 		'supports' => array('title'),
-		'rewrite'=> array('slug'=> 'slider'),
+		'rewrite'=> array('slug'=> 'tab-feature'),
 		'menu_icon' => 'dashicons-editor-contract'
 	)); 
 }
