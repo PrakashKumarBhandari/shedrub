@@ -3,7 +3,7 @@
         background: #333;
         height: 3rem;
         overflow: hidden;
-        @include transition();
+        transition: height 0.5s ease;
         .nav-tabs {
             border-color: transparent;
             justify-content: space-between;
@@ -15,7 +15,7 @@
                 background: none;
                 font-family: $title-font;
                 text-align: center;
-                color: #bfbfbf;
+                color: #939393;
                 padding: 0 1rem;
                 i {
                     width: 7rem;
@@ -28,10 +28,10 @@
                     svg {
                         width: 100%;
                         path {
-                            fill: #bfbfbf;
+                            fill: #939393;
                         }
                         g {
-                            fill: #bfbfbf;
+                            fill: #939393;
                         }
                     }
                 }
@@ -91,7 +91,7 @@
             opacity: 0;
         }
         &.open {
-            height: auto;
+            height: 25.2rem;
             overflow: visible;
             .nav-tabs {
                 border-color: #aaa;
@@ -141,12 +141,13 @@
             justify-content: space-between;
             border: none;
         }
-        .nav-item {
+        > .nav-item {
             border-bottom: 1px solid hsla(0, 0%, 100%, 0.25);
+            position: relative;
             @include respond(md) {
                 border: none;
             }
-            .nav-link {
+            > .nav-link {
                 font-weight: 400;
                 color: #fff;
                 padding: 0.75rem 1rem;
@@ -159,8 +160,85 @@
                     font-weight: 700;
                     padding: 1.25rem 1rem;
                 }
-                &.active,
-                &:hover {
+            }
+            > .sub-toggle {
+                position: absolute;
+                top: 1rem;
+                right: 0;
+                background: $dark-color;
+                color: #fff;
+                cursor: pointer;
+                width: 2rem;
+                height: 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.4rem;
+                border-radius: 0.4rem;
+                &::before {
+                    content: "+";
+                    font-size: 1.8rem;
+                    font-weight: 500;
+                    font-family: $title-font;
+                    color: #fff;
+                }
+                @include respond(md) {
+                    top: 1.4rem;
+                    display: none;
+                }
+            }
+            > .sub-menu {
+                list-style-type: none;
+                display: none;
+                padding: 1rem 1.5rem;
+                @include respond(md) {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background: #fff;
+                    box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.16);
+                    width: 20rem;
+                }
+                > .nav-item {
+                    &:not(:last-child) {
+                        border-bottom: 0.1rem solid
+                            rgba($color: #fff, $alpha: 0.08);
+                        @include respond(md) {
+                            border-bottom: 0.1rem solid
+                                rgba($color: #000000, $alpha: 0.08);
+                        }
+                    }
+                    > .nav-link {
+                        color: rgba($color: #fff, $alpha: 0.5);
+                        font-family: $title-font;
+                        @include respond(md) {
+                            color: rgba($color: $dark-color, $alpha: 0.7);
+                            font-family: $default-font;
+                            font-size: 1.4rem;
+                        }
+                    }
+                    &:hover,
+                    &.current-menu-item {
+                        .nav-link {
+                            color: #fff;
+                            @include respond(md) {
+                                color: $dark-color;
+                            }
+                        }
+                    }
+                }
+            }
+            &:hover {
+                > .nav-link {
+                    color: $primary-color;
+                    font-weight: 700;
+                }
+                > .sub-menu {
+                    display: block;
+                }
+            }
+            &.current-menu-item {
+                > .nav-link {
                     color: $primary-color;
                     font-weight: 700;
                 }

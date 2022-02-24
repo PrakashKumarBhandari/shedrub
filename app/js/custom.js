@@ -34,6 +34,18 @@ jQuery(document).ready(function ($) {
         $("body").removeClass("mobile-nav-expand");
     });
 
+    // Submenu Navigation
+    $(".sub-menu").parent().addClass("menu-item-has-children");
+    $(".menu-item-has-children").append('<span class="sub-toggle"></span>');
+
+    $(".menu-item-has-children .sub-toggle").click(function () {
+        $(this)
+            .parent(".menu-item-has-children")
+            .children(".sub-menu")
+            .first()
+            .slideToggle();
+    });
+
     // Main Banner Slider
     $mainBannerSlider.owlCarousel({
         loop: true,
