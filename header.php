@@ -33,12 +33,11 @@
 $site_logo = get_field('site_title', 'site_logo');
 $site_title = get_field('site_title', 'option');
 $site_slogon = get_field('site_slogon', 'option');
-$menu_tootle_shortcode = get_field('menu_tootle_shortcode', 'option');
-$menu_tootle_shortcode = get_field('menu_tootle_shortcode', 'option');
+$top_menu_tootle_shortcode = get_field('menu_tootle_shortcode', 'option');
 ?>
 <?php wp_body_open(); ?>
 <header id="masthead" class="site-header">        
-    <?php echo do_shortcode('[FEATURED_MENU_TOP_HEADER]');?>
+    <?php echo do_shortcode($top_menu_tootle_shortcode);?>
 
     <nav class="mobile-header d-md-none">
         <a href="javascript:void(0);" class="open-mobile-nav">
