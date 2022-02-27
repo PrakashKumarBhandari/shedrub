@@ -1,0 +1,166 @@
+.site-header {
+    &__category-navigation {
+        background: #333;
+        height: 3rem;
+        overflow: hidden;
+        transition: height 0.5s ease;
+        .nav-tabs {
+            border-color: transparent;
+            justify-content: space-between;
+            padding: 0.4rem 0;
+            .nav-link {
+                margin: 0;
+                border: none;
+                border-radius: 0;
+                background: none;
+                font-family: $title-font;
+                text-align: center;
+                color: #939393;
+                padding: 0 1rem 1.9rem;
+                position: relative;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    border-left: 0.7rem solid transparent;
+                    border-right: 0.7rem solid transparent;
+                    margin-left: -0.7rem;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -0.1rem;
+                    left: 50%;
+                    border-left: 0.6rem solid transparent;
+                    border-right: 0.6rem solid transparent;
+                    margin-left: -0.6rem;
+                    z-index: 1;
+                }
+                i {
+                    width: 7rem;
+                    height: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto;
+                    visibility: hidden;
+                    svg {
+                        width: 100%;
+                        path {
+                            fill: #939393;
+                        }
+                        g {
+                            fill: #939393;
+                        }
+                    }
+                }
+                &.active,
+                &:hover {
+                    color: #fff;
+                    i {
+                        svg {
+                            path {
+                                fill: #fff;
+                            }
+                            g {
+                                fill: #fff;
+                            }
+                        }
+                    }
+                }
+                &.active {
+                    &::before {
+                        border-bottom: 0.9rem solid #aaa;
+                    }
+                    &::after {
+                        border-bottom: 0.9rem solid #333;
+                    }
+                }
+            }
+        }
+        .category-item {
+            color: #fff;
+            padding: 1.5rem 0 2.4rem;
+            p {
+                font-size: 1.4rem;
+                font-family: $title-font;
+            }
+            .sites {
+                .site {
+                    margin: 0 2rem 0 0;
+                    width: 15rem;
+                    h3 {
+                        font-size: 1.3rem;
+                        font-weight: 400;
+                        line-height: 1.8rem;
+                        font-family: $title-font;
+                    }
+                    a {
+                        color: #fff;
+                        background: url("#{$theme-imgpath}/network-outgoing-link.white.svg")
+                            no-repeat top 0.5rem left;
+                        background-size: 1.3rem 1.3rem;
+                        padding-left: 1.8rem;
+                    }
+                }
+            }
+        }
+        .tab-pane-2 {
+            .category-item {
+                padding-left: 10%;
+            }
+        }
+        .tab-pane-3 {
+            .category-item {
+                padding-left: 22%;
+            }
+        }
+        .tab-pane-4 {
+            .category-item {
+                padding-left: 35%;
+            }
+        }
+        .tab-pane-5 {
+            .category-item {
+                padding-left: 50%;
+            }
+        }
+        .tab-pane-6 {
+            .category-item {
+                padding-left: 60%;
+            }
+        }
+        .tab-pane-7 {
+            .category-item {
+                padding-left: 70%;
+            }
+        }
+        .close-category-item {
+            position: absolute;
+            top: 0.5rem;
+            right: 1rem;
+            visibility: hidden;
+            opacity: 0;
+        }
+        &.open {
+            height: 29.56rem;
+            overflow: visible;
+            .nav-tabs {
+                border-color: #aaa;
+                padding: 1.9rem 0 0;
+                .nav-link {
+                    i {
+                        height: 7rem;
+                        visibility: visible;
+                        margin: 0 auto 0.5rem;
+                    }
+                }
+            }
+            .close-category-item {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+}
