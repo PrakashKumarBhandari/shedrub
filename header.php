@@ -36,9 +36,7 @@ $site_slogon = get_field('site_slogon', 'option');
 $top_menu_tootle_shortcode = get_field('menu_tootle_shortcode', 'option');
 ?>
 <?php wp_body_open(); ?>
-<header id="masthead" class="site-header">        
-    <?php echo do_shortcode($top_menu_tootle_shortcode);?>
-
+<header id="masthead" class="site-header"> 
     <nav class="mobile-header d-md-none">
         <a href="javascript:void(0);" class="open-mobile-nav">
             <img src="<?php echo get_template_directory_uri();?>/dist/images/menu-navigation-icon.svg" alt="hamburger-icon">
@@ -98,7 +96,10 @@ $top_menu_tootle_shortcode = get_field('menu_tootle_shortcode', 'option');
         <a href="javascript:void(0);" class="close-mobile-nav"><img src="<?php echo get_template_directory_uri();?>/dist/images/menu-mobile-close.white.svg" alt="close"></a>
         <div class="container">
             <?php
-            clean_custom_menu('primary_menu');
+                wp_nav_menu( array('theme_location'=>'primary_menu',
+                'container'=>'',
+                'menu_class'=>'nav'
+                ));
             ?>
         </div>
     </nav>

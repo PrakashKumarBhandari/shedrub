@@ -41,6 +41,13 @@
                 padding: 0.75rem 1rem;
                 font-family: $title-font;
                 font-size: 1.8rem;
+                i{
+                    display: none;
+                    padding-left: .3rem;
+                    @include respond(md){
+                        display: inline-block;
+                    }
+                }
                 @include respond(md) {
                     color: $default-text-color;
                     font-family: $default-font;

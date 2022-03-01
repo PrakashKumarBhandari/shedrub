@@ -54,11 +54,13 @@
                 text-transform: capitalize;
                 font-family: $title-font;
                 font-weight: 700;
+               
                 &.active,
                 &:hover {
                     background: $primary-color;
                     border-color: $primary-color;
                 }
+                
             }
         }
     }

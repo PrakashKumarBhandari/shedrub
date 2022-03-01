@@ -53,6 +53,55 @@ function shedrub_network_setup() {
 		)
 	);
 
+	function add_class_to_all_menu_anchors( $atts ) {
+		$atts['class'] = 'nav-link';	 
+		return $atts;
+	}
+	add_filter( 'nav_menu_link_attributes', 'add_class_to_all_menu_anchors', 10 );
+
+	function wpdocs_channel_nav_class( $classes, $item, $args ) {
+ 
+		if ( 'primary_menu' === $args->theme_location ) {
+			$classes[] = "nav-item";
+		}	 
+		return $classes;
+	}
+	add_filter( 'nav_menu_css_class' , 'wpdocs_channel_nav_class' , 10, 4 );
+
+
+	function get_pkb_sub_menu_submenu_button( $direction = 'down', $title ) {
+		$button .= ' <i class="fa fa-angle-' . $direction . '" aria-hidden="true"></i>';		
+		return $button;
+	}
+	
+	
+	/**
+	 * Function to add Dropdown Icon for Primary menu items that has submenu.
+	 *
+	 * @param [type] $title
+	 * @param [type] $item
+	 * @param [type] $args
+	 * @param [type] $depth
+	 * @return void
+	 */
+	function pkb_submenu_dropdown_icon( $title, $item, $args, $depth ) {
+	
+		if ( 'primary_menu' === $args->theme_location ) {
+	
+			if ( in_array( 'menu-item-has-children', $item->classes ) ) {
+				if ( 0 === $depth ) {
+					$title .= get_pkb_sub_menu_submenu_button( 'down', $title );
+				} else {
+					$title .= get_pkb_sub_menu_submenu_button( 'right', $title );
+				}
+			}
+		}
+	
+		return $title;
+	}
+	add_filter( 'nav_menu_item_title', 'pkb_submenu_dropdown_icon', 10, 4 );
+
+
 	/*
 		* Switch default core markup for search form, comment form, and comments
 		* to output valid HTML5.
@@ -155,8 +204,8 @@ function shedrub_network_scripts() {
 	wp_enqueue_style( 'theme-font-google', 'https://fonts.googleapis.com', array(), _S_VERSION, 'all' );
     wp_enqueue_style( 'theme-fonts.gstatic', 'https://fonts.gstatic.com', array(), _S_VERSION, 'all' );
     wp_enqueue_style( 'theme-fonts.googleapis', 'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&family=Roboto+Slab:wght@300;400;600&display=swap', array(), _S_VERSION, 'all' );
-
-
+	
+	wp_enqueue_style( 'fa-icon-v3', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css', array(), _S_VERSION, 'all' );
 	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/dist/js/scripts.min.js', array(), _S_VERSION, true );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
