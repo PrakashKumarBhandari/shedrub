@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
     $mainBannerSlider = $(".mainBanner-carousel");
 
-    $(window).click(function () {
+/*    $(window).click(function () {
         $("#category-navigation").removeClass("open");
         $("#categoryTab li a").removeClass("active");
     });
@@ -15,6 +15,7 @@ jQuery(document).ready(function ($) {
         e.stopPropagation();
         $("#category-navigation").removeClass("open");
     });
+*/
 
     $(window).scroll(function () {
         // const headerHeight = $("#main-header-navigation").offset().top;
