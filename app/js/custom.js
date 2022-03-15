@@ -37,7 +37,7 @@ jQuery(document).ready(function ($) {
 
     // Submenu Navigation
     $(".sub-menu").parent().addClass("menu-item-has-children");
-    $(".menu-item-has-children").append('<span class="sub-toggle"></span>');
+    $(".menu-item-has-children").append('<span class="sub-toggle"><i class="fa fa-plus"></span>');
 
     $(".menu-item-has-children .sub-toggle").click(function () {
         $(this)
@@ -45,6 +45,7 @@ jQuery(document).ready(function ($) {
             .children(".sub-menu")
             .first()
             .slideToggle();
+            $(this).children(".fa").first().toggleClass('fa-plus fa-minus');
     });
 
     // Main Banner Slider
