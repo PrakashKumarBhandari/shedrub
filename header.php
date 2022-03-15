@@ -78,10 +78,12 @@ $top_menu_tootle_shortcode = get_field('menu_tootle_shortcode', 'option');
             }         
             ?>
         </div>
-        <hgroup>
+        <a href="<?php echo site_url('/');?>">
+        <hgroup>            
             <h1 class="d-none d-md-block"><?php echo $site_title? $site_title : _e('Shedrub','shedrub_network'); ?></h1>
             <h2><?php echo $site_slogon? $site_slogon : _e('The Online Home of Chokyi Nyima Rinpoche','shedrub_network'); ?> </h2>
         </hgroup>
+        </a>
         <ul class="nav language-menu d-none d-md-flex">
             <li class="nav-item"><a class="nav-link active disabled">en</a></li>
             <li class="nav-item"><a class="nav-link" href="">de</a></li>
